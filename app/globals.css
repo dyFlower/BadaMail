@@ -1,0 +1,14 @@
+html {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+body {
+  margin: 0;
+  position: relative;
+  display: flex;
+  width: 480px;
+  height: 100vh;
+  border: 2px solid gray;
+  background-color: antiquewhite;
+}
