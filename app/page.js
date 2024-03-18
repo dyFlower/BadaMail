@@ -3,6 +3,7 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import main_img from '../public/img/main_img1.jpeg';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 export default async function Home() {
   const client = await connectDB;
@@ -11,10 +12,10 @@ export default async function Home() {
   await db.collection('userCount').updateOne({}, { $inc: { count: 1 } }, { upsert: true });
 
   return (
-    <div className={styles.body}>
+    <Suspense className={styles.body}>
       <Link href={'/main'}>
         <Image src={main_img} alt='메인 화면' fill={true} />
       </Link>
-    </div>
+    </Suspense>
   );
 }
