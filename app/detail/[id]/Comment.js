@@ -7,7 +7,10 @@ export default function Comment({ _id }) {
   const [comment, setComment] = useState('');
   const [list, setList] = useState([]);
 
-  const handleBtn = () => {
+  const handleBtn = (e) => {
+    e.preventDefault();
+    if (!comment.trim()) return;
+
     fetch('/api/comment/new', {
       method: 'POST',
       body: JSON.stringify({ comment: comment, _id: _id }),
@@ -35,15 +38,17 @@ export default function Comment({ _id }) {
             ))
           : '댓글이 존재하지 않습니다.'}
       </div>
-      <div className={styles.inputWrap}>
+      <form className={styles.inputWrap}>
         <textarea
           className={styles.input}
           onChange={(e) => {
             setComment(e.target.value);
           }}
           placeholder='댓글을 남겨주세요.'
+          required
         />
         <button
+          type='submit'
           className={styles.button}
           onClick={() => {
             handleBtn();
@@ -51,7 +56,7 @@ export default function Comment({ _id }) {
         >
           댓글
         </button>
-      </div>
+      </form>
     </div>
   );
 }
