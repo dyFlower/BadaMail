@@ -11,7 +11,7 @@ export default function Comment({ _id }) {
     fetch('/api/comment/new', {
       method: 'POST',
       body: JSON.stringify({ comment: comment, _id: _id }),
-    }).then(fetchComment());
+    }).then(fetchComment);
   };
 
   const fetchComment = () => {

@@ -3,7 +3,6 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import main_img from '../public/img/main_img1.jpeg';
 import Link from 'next/link';
-import { Suspense } from 'react';
 
 export default async function Home() {
   const client = await connectDB;
