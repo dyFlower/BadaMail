@@ -35,9 +35,9 @@ export default function Inbox() {
   }, []);
 
   return (
-    <div className={styles.list}>
+    <Suspense className={styles.list}>
       <Image src={logo} alt='로고' width={125} />
-      <Suspense>
+      <div>
         {list.length === 0 ? (
           <div>받은 편지가 없습니다.</div>
         ) : (
@@ -64,7 +64,7 @@ export default function Inbox() {
             );
           })
         )}
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
