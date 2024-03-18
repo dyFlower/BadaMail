@@ -12,10 +12,10 @@ export default async function Home() {
   await db.collection('userCount').updateOne({}, { $inc: { count: 1 } }, { upsert: true });
 
   return (
-    <Suspense className={styles.body}>
+    <div className={styles.body}>
       <Link href={'/main'}>
         <Image src={main_img} alt='메인 화면' fill={true} />
       </Link>
-    </Suspense>
+    </div>
   );
 }
