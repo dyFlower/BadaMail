@@ -1,9 +1,10 @@
 'use client';
 
-import styles from './inbox.module.css';
-import Link from 'next/link';
+import styles from './page.module.css';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import logo from '../../public/img/logo.png';
 
 export default function Inbox() {
   const [list, setList] = useState([]);
@@ -26,7 +27,7 @@ export default function Inbox() {
     if (mail.answer === answer) {
       router.push('detail/' + mail._id);
     } else {
-      alert('틀림');
+      alert('Wrong Answer!');
     }
   };
   useEffect(() => {
@@ -34,36 +35,36 @@ export default function Inbox() {
   }, []);
 
   return (
-    <div className={styles.listbg}>
-      <div>당신에게 온 편지일수도 있어요.</div>
-      {list.length === 0 ? (
-        <div>받은 편지가 없습니다.</div>
-      ) : (
-        list.map((mail, i) => {
-          return (
-            <div key={mail.id} className={styles.listitem}>
-              <Link href={'detail/' + mail._id}>
+    <div className={styles.list}>
+      <Image src={logo} alt='로고' width={125} />
+      <div>
+        {list.length === 0 ? (
+          <div>받은 편지가 없습니다.</div>
+        ) : (
+          list.map((mail, i) => {
+            return (
+              <div key={mail.id} className={styles.listitem}>
                 <h4>{mail.title}</h4>
-              </Link>
-              <p>{mail.content}</p>
-              <div>{mail.question}</div>
-              <input
-                name='answer'
-                onChange={(e) => {
-                  setAnswer(e.target.value);
-                }}
-              />
-              <button
-                onClick={() => {
-                  handleBtn(mail);
-                }}
-              >
-                확인하기
-              </button>
-            </div>
-          );
-        })
-      )}
+                <p>{mail.content}</p>
+                <div>{mail.question}</div>
+                <input
+                  name='answer'
+                  onChange={(e) => {
+                    setAnswer(e.target.value);
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    handleBtn(mail);
+                  }}
+                >
+                  확인하기
+                </button>
+              </div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 }

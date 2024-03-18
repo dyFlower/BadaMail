@@ -5,6 +5,6 @@ export default async function handler(req, res) {
     const client = await connectDB;
     const db = client.db('forum');
     let result = await db.collection('mail').insertOne(req.body);
-    return res.status(200).redirect('/');
+    return res.status(200).redirect('/main');
   }
 }

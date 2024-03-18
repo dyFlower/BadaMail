@@ -1,6 +1,9 @@
 import { connectDB } from '@/util/database';
 import { ObjectId } from 'mongodb';
 import Comment from './Comment';
+import Image from 'next/image';
+import logo from '../../../public/img/logo.png';
+import styles from './page.module.css';
 
 export default async function Detail(props) {
   const client = await connectDB;
@@ -10,10 +13,10 @@ export default async function Detail(props) {
     .findOneAndUpdate({ _id: new ObjectId(props.params.id) }, { $inc: { view: 1 } });
 
   return (
-    <div>
-      <div>편지</div>
-      <div>{result.title}</div>
-      <div>{result.content}</div>
+    <div className={styles.wrap}>
+      <Image src={logo} alt='로고' width={125} />
+      <h3 className={styles.title}>{result.title}</h3>
+      <p className={styles.content}>{result.content}</p>
       <Comment _id={result._id.toString()} />
     </div>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import styles from './page.module.css';
 
 export default function Comment({ _id }) {
   const [comment, setComment] = useState('');
@@ -27,21 +28,30 @@ export default function Comment({ _id }) {
     <div>
       <div>
         {list.length > 0
-          ? list.map((v, i) => <p key={i}>{v.content}</p>)
+          ? list.map((v, i) => (
+              <p className={styles.listitem} key={i}>
+                {v.content}
+              </p>
+            ))
           : '댓글이 존재하지 않습니다.'}
       </div>
-      <input
-        onChange={(e) => {
-          setComment(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          handleBtn();
-        }}
-      >
-        댓글
-      </button>
+      <div className={styles.inputWrap}>
+        <textarea
+          className={styles.input}
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
+          placeholder='댓글을 남겨주세요.'
+        />
+        <button
+          className={styles.button}
+          onClick={() => {
+            handleBtn();
+          }}
+        >
+          댓글
+        </button>
+      </div>
     </div>
   );
 }

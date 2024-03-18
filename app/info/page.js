@@ -2,6 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import styles from './page.module.css';
+import Image from 'next/image';
+import logo from '../../public/img/logo.png';
 
 export default function Info() {
   const [formData, setFormData] = useState({ name: '', age: '', birth: '', phone: '' });
@@ -25,14 +28,30 @@ export default function Info() {
   };
 
   return (
-    <div>
+    <div className={styles.wrap}>
+      <Image src={logo} alt='로고' width={125} />
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <input name='name' onChange={handleChange} placeholder='수신인 이름' required />
-          <input name='birth' onChange={handleChange} placeholder='수신인 생일' required />
-          <input name='age' onChange={handleChange} placeholder='수신인 나이' required />
-          <input name='phone' onChange={handleChange} placeholder='수신인 뒷 번호' required />
-          <button onClick={handleBtn}>Inbox로 이동버튼</button>
+          <input
+            name='birth'
+            onChange={handleChange}
+            placeholder='수신인 생일 ( ex : 1218 )'
+            required
+          />
+          <input
+            name='age'
+            onChange={handleChange}
+            placeholder='수신인 나이 ( ex : 31 )'
+            required
+          />
+          <input
+            name='phone'
+            onChange={handleChange}
+            placeholder='폰 뒷 번호 ( ex : 0397 )'
+            required
+          />
+          <button onClick={handleBtn}>수신 확인</button>
         </form>
       </div>
     </div>

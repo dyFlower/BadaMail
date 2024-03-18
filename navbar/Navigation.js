@@ -4,14 +4,14 @@ import styles from './navigation.module.css';
 export default function Navigation() {
   return (
     <div className={styles.navbar}>
-      <Link href={'/write'}>
-        <div>편지 이미지</div>
+      <Link href={'/write'} style={{ textDecoration: 'none' }}>
+        <p>편지 쓰기</p>
       </Link>
-      <Link href={'/'}>
-        <div>홈이미지</div>
+      <Link href={'/main'} style={{ textDecoration: 'none' }}>
+        <p>Home</p>
       </Link>
-      <Link href={'/info'}>
-        <div>수신함 이미지</div>
+      <Link href={'/info'} style={{ textDecoration: 'none' }}>
+        <p>수신 확인</p>
       </Link>
     </div>
   );

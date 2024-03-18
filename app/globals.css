@@ -1,6 +1,8 @@
 html {
+  height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: white;
 }
 body {
@@ -8,7 +10,15 @@ body {
   position: relative;
   display: flex;
   width: 480px;
-  height: 100vh;
-  border: 2px solid gray;
-  background-color: antiquewhite;
+  height: 95vh;
+  border: 10px solid black;
+  background-color: #212121;
+  border-radius: 15px;
+}
+
+@font-face {
+  font-family: 'Ownglyph_Dailyokja-Rg';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/Ownglyph_Dailyokja-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }

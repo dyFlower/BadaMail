@@ -1,0 +1,39 @@
+.wrap {
+  width: 100%;
+  margin-bottom: 75px;
+  overflow: scroll;
+}
+.title {
+  padding: 5px;
+  background-color: #fafafa;
+  border-radius: 5px;
+}
+.content {
+  background-color: #fafafa;
+  padding: 5px;
+  border-radius: 5px;
+}
+.listitem {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #d0d0d0;
+  word-wrap: break-word;
+}
+.inputWrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.input {
+  width: 80%;
+  padding: 5px;
+  height: 30px;
+  text-align: start;
+  resize: none;
+}
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+}
