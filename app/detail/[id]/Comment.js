@@ -7,8 +7,7 @@ export default function Comment({ _id }) {
   const [comment, setComment] = useState('');
   const [list, setList] = useState([]);
 
-  const handleBtn = (e) => {
-    e.preventDefault();
+  const handleBtn = () => {
     if (!comment.trim()) return;
 
     fetch('/api/comment/new', {
@@ -48,7 +47,6 @@ export default function Comment({ _id }) {
           required
         />
         <button
-          type='submit'
           className={styles.button}
           onClick={() => {
             handleBtn();
