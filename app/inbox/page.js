@@ -2,7 +2,7 @@
 
 import styles from './page.module.css';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Image from 'next/image';
 import logo from '../../public/img/logo.png';
 
@@ -37,7 +37,7 @@ export default function Inbox() {
   return (
     <div className={styles.list}>
       <Image src={logo} alt='로고' width={125} />
-      <div>
+      <Suspense>
         {list.length === 0 ? (
           <div>받은 편지가 없습니다.</div>
         ) : (
@@ -64,7 +64,7 @@ export default function Inbox() {
             );
           })
         )}
-      </div>
+      </Suspense>
     </div>
   );
 }
